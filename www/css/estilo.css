@@ -1,0 +1,35 @@
+.btn_delete{
+    width:25px;
+    height:25px;
+    float:right;
+   } 
+.anadir{
+	width:20px;
+	height:20px;
+	align-content:center;
+}
+p{
+	font-size:25px;
+	font-family:Comic Sans MS;
+
+}
+body{
+	background-color:#1FB1E4;
+}
+#div_lis{
+	background-color:rgba(255,255,255,0.7);
+}
+button{
+	border-radius:10px;
+}
+h1{
+	text-align:center;
+}
+.ip_tarea{
+	width:250px;
+	height: 25px;
+}
+a{
+	text-decoration:none;
+	font-size:25px;
+}
