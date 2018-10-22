@@ -1,6 +1,6 @@
 $(document).ready(inicio);
         // Creo el array
-        lista_compra=[];
+        lista_tarea=[];
         
         function inicio(){ 
         	// Creo los eventos
@@ -13,20 +13,20 @@ $(document).ready(inicio);
         	leido=localStorage.lista;                    	
         	if (leido!=undefined && leido.length>0 && leido!=null){
         		// Si hay datos guardados
-        		lista_compra=leido.split("**");
+        		lista_tarea=leido.split("**");
         		rellenar_lista();
         	}
         }
         function rellenar_lista(){
         	$("#div_lis").empty();
-        	for (k=0; k<lista_compra.length;k++){
-        		$("#div_lis").append("<div class='linea'><p><input type='checkbox' onclick='comprobar(this)' value="+lista_compra[k]+" >"+lista_compra[k]+"<img src='img/btn_delete.png' class='btn_delete' onclick='borrar(this)'></p></div>");
+        	for (k=0; k<lista_tarea.length;k++){
+        		$("#div_lis").append("<div class='linea'><p><input type='checkbox' onclick='comprobar(this)' value="+lista_tarea[k]+" >"+lista_tarea[k]+"<img src='img/btn_delete.png' class='btn_delete' onclick='borrar(this)'></p></div>");
         	}
 
         }
         function guardar_datos(){
         	// Guardo datos locales, pero antes los convierto a texto
-        	conversion=lista_compra.join("**");
+        	conversion=lista_tarea.join("**");
         	localStorage.lista=conversion;
         }
         function teclado(e){
@@ -37,8 +37,8 @@ $(document).ready(inicio);
         }
         function validar(){
         	cosa=$("#tarea").val();
-        	if (lista_compra.indexOf(cosa.toLowerCase())<0 && cosa.length>0){
-        		lista_compra.push(cosa);
+        	if (lista_tarea.indexOf(cosa.toLowerCase())<0 && cosa.length>0){
+        		lista_tarea.push(cosa);
         		$("#div_lis").append("<div class='linea'><p><input type='checkbox' onclick='comprobar(this)' value="+cosa+" >"+cosa+"<img src='img/btn_delete.png' class='btn_delete' onclick='borrar(this)'></p></div>");
         		guardar_datos();
         	}
@@ -47,7 +47,7 @@ $(document).ready(inicio);
         function borrar(e){
         	// Borro el dato del array (con splice) y del html (con remove)
         	buscar=$(e).parent().index();
-        	lista_compra.splice(buscar,1);
+        	lista_tarea.splice(buscar,1);
         	$(e).parent().remove();
         	guardar_datos();
         }
